@@ -1,0 +1,9 @@
+.sidebar1{
+height:1000px;;;
+}
+
+.modal{
+  max-height:800px;
+  position:relative;
+  overflow:auto;
+}
