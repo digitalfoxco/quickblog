@@ -29,6 +29,12 @@ class AdminController extends Controller {
 		return view('pages.admin.auth.login');
 	}
 	
+	//Forgot Password View
+	public function forgotpasswordView()
+	{
+		return view('pages.admin.auth.forgotpassword');
+	}
+	
 	//Dashboard View
 	public function dashboard()
 	{
@@ -55,7 +61,7 @@ class AdminController extends Controller {
 				{
 						return redirect('/admin/dashboard');
 				}else{
-					    return redirect('/admin');
+					    return redirect('/login');
 					 }
 				}
 	}
@@ -352,34 +358,4 @@ class AdminController extends Controller {
 			return redirect()->back();
 	}
 	
-	
-	public function sample()
-	{
-		//$name = '<span style="color:red;">jatin</span>';
-		//$name = 'jatin';
-		//return view('main')->with('page', 'index')->with('name', $name);
-		
-		//with array
-		//$name = 'Test Sample';
-		//return view('main')->with('page', 'index')->with(['first'=>'Test', 'last'=>'Sample']);
-		
-		//with array data[]
-		//$data = [];
-		//$data['first'] = 'Test';
-		//$data['last']  = 'Sample';
-		//return view('main')->with('page', 'index')->with($data);
-		
-		//php compact function data in array
-		//$first  = 'Test';
-		//$last   = 'Sample';
-		//return view('main', compact('first', 'last'))->with('page', 'index');
-		
-		//php compact function data in array
-		$data  = [
-			'Sample 1','Sample 2','Sample 3'
-		];
-		return view('admin', compact('data'))->with('page', 'dashboard');
-		
-	}
-
 }

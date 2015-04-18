@@ -5,7 +5,7 @@
 						  <ul id="nav-mobile" class="right hide-on-med-and-down">
 							<li><a class="white-text" href="sass.html"></a></li>
 							<li><a class="white-text" href="components.html"></a></li>
-							<li><a class="white-text" href="/admin/logout">Logout</a></li>
+							<li><a class="white-text" href="/logout">Logout</a></li>
 						  </ul>
 						</div>
 					  </nav>

@@ -31,7 +31,7 @@
 		 <div class="card blue-grey darken-1 col  s12 m6 l6">
 			  <div class="card-content white-text  center">
 				  <span class="card-title">Login</span>
-					  <form action="/admin/login" method="post">
+					  <form action="/login" method="post">
 						<div class="row">
 							@include('errors.validation')
 						</div>
@@ -60,7 +60,7 @@
 					</form>
 				</div>
 				<div class="card-action">
-				  <a href="#">Forgot Password ? </a>
+				  <a href="/forgotpassword">Forgot Password ? </a>
 				</div>
           </div>
     </div>

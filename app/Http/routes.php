@@ -34,15 +34,6 @@ Route::group((['prefix' => '']), function (){
 	//Index View
 	Route::get('/', 'FrontendController@indexView');
 
-	//Login View
-	Route::get('login', 'FrontendController@loginView');
-
-	//Login
-	Route::post('login', 'FrontendController@login');
-	
-	//Index View
-	//Route::get('/index', 'FrontendController@indexView');
-	
 	//About View
 	Route::get('/about', 'FrontendController@aboutView');
 	
@@ -65,11 +56,13 @@ Route::group((['prefix' => '']), function (){
 |------------------------------------
 |
 */
-Route::group((['prefix' => 'admin']), function (){
+Route::group((['prefix' => '']), function (){
 	
-	Route::get('/', 'AdminController@loginView');
+	Route::get('/login', 'AdminController@loginView');
 	
 	Route::post('/login', 'AdminController@login');
+	
+	Route::get('/forgotpassword', 'AdminController@forgotpasswordView');
 
 });
 
