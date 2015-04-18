@@ -150,7 +150,7 @@ $('#btnpost').click(function(){
 	$('#id').val('');
 	$('#title').val('');
 	$('#sub_title').val('');
-	$('#content').val('');
+	CKEDITOR.instances['content'].setData('');
 	$('#postimage').hide();
 	
 });
@@ -164,7 +164,7 @@ $('.updatepost').click(function(){
 	$('#id').val($(this).attr('data-id'));
 	$('#title').val($(this).attr('data-title'));
 	$('#sub_title').val($(this).attr('data-sub-title'));
-	$('#content').val($(this).attr('data-content'));
+	CKEDITOR.instances['content'].setData($(this).attr('data-content'));
 	$('#postimage').attr('src',$(this).attr('data-image'));
 	if(($(this).attr('data-status'))=='1')
 	$('#filled-in-box').prop('checked', true);

@@ -72,7 +72,7 @@ window.onload = function() {
 						  
 						   <div class="row">
 								<div class="input-field col s12 addcontent">
-								  <textarea id="content" name="content" class="materialize-textarea"></textarea>
+								  <textarea id="content" name="content" class="materialize-textarea about-content"></textarea>
 								</div>
 							</div>
 						  
@@ -149,7 +149,7 @@ $('#btnabout').click(function(){
 	$('#id').val('');
 	$('#title').val('');
 	$('#sub_title').val('');
-	$('#content').val('');
+	 CKEDITOR.instances['content'].setData('');
 	$('#abtimage').hide();
 	
 });
@@ -163,7 +163,8 @@ $('.updateabout').click(function(){
 	$('#id').val($(this).attr('data-id'));
 	$('#title').val($(this).attr('data-title'));
 	$('#sub_title').val($(this).attr('data-sub-title'));
-	$('#content').val($(this).attr('data-content'));
+	// var quote =$(this).attr('data-content'); 
+	  CKEDITOR.instances['content'].setData($(this).attr('data-content'));
 	$('#abtimage').attr('src',$(this).attr('data-image'));
 	if(($(this).attr('data-status'))=='1')
 	$('#filled-in-box').prop('checked', true);
