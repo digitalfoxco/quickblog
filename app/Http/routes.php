@@ -10,7 +10,12 @@ use App\Posts;
 | and give it the controller to call when that URI is requested.
 |
 */
-
+/*
+|-----------------------------------
+| Test
+|-----------------------------------
+|
+*/
 Route::get('test', function(){
 	
 		$post = 'i m @here #for @demo text ? all';
@@ -21,6 +26,20 @@ Route::get('test', function(){
 		die;
 		
 });
+
+
+/*
+|-----------------------------------
+| Forgot Password
+|-----------------------------------
+|
+*/
+Route::controllers([
+
+	 //'auth' => 'Auth\AuthController',
+	 'password' => 'Auth\PasswordController',
+
+]);
 
 
 /*
@@ -62,8 +81,7 @@ Route::group((['prefix' => '']), function (){
 	
 	Route::post('/login', 'AdminController@login');
 	
-	Route::get('/forgotpassword', 'AdminController@forgotpasswordView');
-
+	
 });
 
 /*

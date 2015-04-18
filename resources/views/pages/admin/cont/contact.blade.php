@@ -80,7 +80,7 @@ window.onload = function() {
 									  
 									  <div class="row">
 										<div class="file-field input-field">
-										  <input class="file-path validate" type="text"/>
+										  <input class="file-path validate" type="text" id="imagename"/>
 										  <div class="btn">
 											<span>File</span>
 											<input type="file" name="file"/>
@@ -132,7 +132,7 @@ window.onload = function() {
 									<td>Off</td>
 									@endif
 									<td><img src="/images/{{$getcontact->image}}" width="100px" height="80px"></td>
-									<td><a class="alert-link updatecontact" data-id="{{$getcontact->id}}" data-title="{{$getcontact->title}}" data-sub-title="{{$getcontact->sub_title}}" data-content="{{$getcontact->content}}" data-image="/images/{{$getcontact->image}}" data-status="{{$getcontact->status}}">Update</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/admin/contact/delete/{{$getcontact->id}}" onclick="return confirm('Are you sure you want to delete?');">Delete</a></td>
+									<td><a class="alert-link updatecontact" data-id="{{$getcontact->id}}" data-title="{{$getcontact->title}}" data-sub-title="{{$getcontact->sub_title}}" data-image-name="{{$getcontact->image}}" data-content="{{$getcontact->content}}" data-image="/images/{{$getcontact->image}}" data-status="{{$getcontact->status}}">Update</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/admin/contact/delete/{{$getcontact->id}}" onclick="return confirm('Are you sure you want to delete?');">Delete</a></td>
 								  </tr>
 								</tbody>
 								@endforeach
@@ -146,34 +146,44 @@ window.onload = function() {
 	
 $('#btncontact').click(function(){
 	$('#modal1').openModal();
+	$('.err').hide();
 	$('#id').val('');
 	$('#title').val('');
 	$('#sub_title').val('');
-	$('#content').val('');
+	CKEDITOR.instances['content'].setData('');
 	$('#contimage').hide();
+	$('#imagename').val('');
 	
 });
 
 
+$( document ).ready(function() {
+	if($('.err').text()!=''){
+	  $('#modal1').openModal();
+	  $('#contimage').hide();
+	} 
+});
+
 
 $('.updatecontact').click(function(){
 	$('#modal1').openModal();
+	$('.err').hide();
 	$('#contimage').show();
 	$('#id').val($(this).attr('data-id'));
 	$('#title').val($(this).attr('data-title'));
+	$('#title').focus();
 	$('#sub_title').val($(this).attr('data-sub-title'));
-	$('#content').val($(this).attr('data-content'));
+	$('#sub_title').focus();
+	CKEDITOR.instances['content'].setData($(this).attr('data-content'));
 	$('#contimage').attr('src',$(this).attr('data-image'));
+	$('#imagename').val($(this).attr('data-image-name'));
 	if(($(this).attr('data-status'))=='1')
 	$('#filled-in-box').prop('checked', true);
 	else
 	$('#filled-in-box').prop('checked', false);
 });
 
-// Initialize collapse button
- // $('.button-collapse').sideNav();
-  // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-  //$('.collapsible').collapsible();
+
 
 </script>
 
