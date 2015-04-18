@@ -72,7 +72,7 @@ window.onload = function() {
 						  
 						   <div class="row">
 								<div class="input-field col s12 addcontent">
-								  <textarea id="content" name="content" class="materialize-textarea about-content"></textarea>
+								  <textarea id="content" name="content" class="materialize-textarea"></textarea>
 								</div>
 							</div>
 						  
@@ -163,7 +163,8 @@ $('.updateabout').click(function(){
 	$('#id').val($(this).attr('data-id'));
 	$('#title').val($(this).attr('data-title'));
 	$('#sub_title').val($(this).attr('data-sub-title'));
-	// var quote =$(this).attr('data-content'); 
+	$('#title').focus();	
+	$('#sub_title').focus();
 	  CKEDITOR.instances['content'].setData($(this).attr('data-content'));
 	$('#abtimage').attr('src',$(this).attr('data-image'));
 	if(($(this).attr('data-status'))=='1')

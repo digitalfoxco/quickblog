@@ -72,8 +72,6 @@ window.onload = function() {
 									  
 									   <div class="row">
 											<div class="input-field col s12">
-											  <!--<textarea id="textarea1" name="content" class="materialize-textarea"></textarea>
-											  <label for="textarea1">Content</label>-->
 											  <textarea id="content" name="content" class="materialize-textarea"></textarea>
 											</div>
 										</div>
@@ -164,6 +162,8 @@ $('.updatecontact').click(function(){
 	$('#id').val($(this).attr('data-id'));
 	$('#title').val($(this).attr('data-title'));
 	$('#sub_title').val($(this).attr('data-sub-title'));
+	$('#title').focus();	
+	$('#sub_title').focus();
 	CKEDITOR.instances['content'].setData($(this).attr('data-content'));
 	$('#contimage').attr('src',$(this).attr('data-image'));
 	if(($(this).attr('data-status'))=='1')

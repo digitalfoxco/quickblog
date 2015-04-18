@@ -130,6 +130,8 @@ $('.updatemenu').click(function(){
 	$('#id').val($(this).attr('data-id'));
 	$('#name').val($(this).attr('data-name'));
 	$('#path').val($(this).attr('data-path'));
+	$('#name').focus();	
+	$('#path').focus();
 	if(($(this).attr('data-status'))=='1')
 	$('#filled-in-box').prop('checked', true);
 	else

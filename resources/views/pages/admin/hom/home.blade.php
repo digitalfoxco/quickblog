@@ -143,7 +143,9 @@ $('.updatehome').click(function(){
 	$('.err').hide();
 	$('#id').val($(this).attr('data-id'));
 	$('#title').val($(this).attr('data-title'));
+	$('#title').focus();
 	$('#sub_title').val($(this).attr('data-sub-title'));
+	$('#sub_title').focus();
 	$('#homimage').attr('src',$(this).attr('data-image'));
 	if(($(this).attr('data-status'))=='1')
 	$('#filled-in-box').prop('checked', true);
