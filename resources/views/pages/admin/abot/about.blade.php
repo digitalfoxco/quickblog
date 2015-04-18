@@ -71,7 +71,7 @@ window.onload = function() {
 						  </div>
 						  
 						   <div class="row">
-								<div class="input-field col s12">
+								<div class="input-field col s12 addcontent">
 								  <textarea id="content" name="content" class="materialize-textarea"></textarea>
 								</div>
 							</div>

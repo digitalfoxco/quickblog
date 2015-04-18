@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+use App\Fileentry;
 
 use App\Contus;
 use Auth;
@@ -90,10 +93,10 @@ class AdminController extends Controller {
           if(Input::hasFile('file')){
 			  $validator = Validator::make(
 					[
-						'file'     => Input::hasFile('file')
+						'file'     =>Input::file('file')
 					],
 					[
-						'file'     => 'required|image|mimes:jpeg,bmp,png'
+						'file'     => 'required|image|mimes:jpeg,jpg,png,bmp'
 						
 					]);
 		}
@@ -164,10 +167,10 @@ class AdminController extends Controller {
             if(Input::hasFile('file')){
 			  $validator = Validator::make(
 					[
-						'file'     => Input::hasFile('file')
+						'file'     =>Input::file('file')
 					],
 					[
-						'file'     => 'required|image|mimes:jpeg,bmp,png'
+						'file'     => 'required|image|mimes:jpeg,jpg,png,bmp'
 						
 					]);
 			}
@@ -235,13 +238,13 @@ class AdminController extends Controller {
             if(Input::hasFile('file')){
 			  $validator = Validator::make(
 					[
-						'file'     => Input::hasFile('file')
+						'file'     =>Input::file('file')
 					],
 					[
-						'file'     => 'required|image|mimes:jpeg,bmp,png'
+						'file'     => 'required|image|mimes:jpeg,jpg,png,bmp'
 						
 					]);
-		}
+			}
 			if ($validator->fails()){
 				return redirect()->back()->withErrors($validator->errors());
 				}else{
@@ -306,10 +309,10 @@ class AdminController extends Controller {
             if(Input::hasFile('file')){
 			  $validator = Validator::make(
 					[
-						'file'     => Input::hasFile('file')
+						'file'     =>Input::file('file')
 					],
 					[
-						'file'     => 'required|image|mimes:jpeg,bmp,png'
+						'file'     => 'required|image|mimes:jpeg,jpg,png,bmp'
 						
 					]);
 		}
