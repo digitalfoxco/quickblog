@@ -87,6 +87,16 @@ class AdminController extends Controller {
 						'sub_title' => 'required'
 					]
            );
+          if(Input::hasFile('file')){
+			  $validator = Validator::make(
+					[
+						'file'     => Input::hasFile('file')
+					],
+					[
+						'file'     => 'required|image|mimes:jpeg,bmp,png'
+						
+					]);
+		}
 			if ($validator->fails()){
 					return redirect()->back()->withErrors($validator->errors());
 				}else{
@@ -95,6 +105,9 @@ class AdminController extends Controller {
 						}else{
 							$home = Homes::find(Input::get('id'));
 						}
+						
+						
+						
 						if(Input::hasFile('file')){
 							$file = Input::file('file');
 							$destinationPath = 'images/';
@@ -148,6 +161,16 @@ class AdminController extends Controller {
 						'content'   => 'required'
 					]
            );
+            if(Input::hasFile('file')){
+			  $validator = Validator::make(
+					[
+						'file'     => Input::hasFile('file')
+					],
+					[
+						'file'     => 'required|image|mimes:jpeg,bmp,png'
+						
+					]);
+			}
 			if ($validator->fails()){
 				return redirect()->back()->withErrors($validator->errors());
 				}else{
@@ -209,6 +232,16 @@ class AdminController extends Controller {
 						'content'   => 'required'
 					]
            );
+            if(Input::hasFile('file')){
+			  $validator = Validator::make(
+					[
+						'file'     => Input::hasFile('file')
+					],
+					[
+						'file'     => 'required|image|mimes:jpeg,bmp,png'
+						
+					]);
+		}
 			if ($validator->fails()){
 				return redirect()->back()->withErrors($validator->errors());
 				}else{
@@ -270,6 +303,16 @@ class AdminController extends Controller {
 						'content'   => 'required'
 					]
            );
+            if(Input::hasFile('file')){
+			  $validator = Validator::make(
+					[
+						'file'     => Input::hasFile('file')
+					],
+					[
+						'file'     => 'required|image|mimes:jpeg,bmp,png'
+						
+					]);
+		}
 			if ($validator->fails()){
 				return redirect()->back()->withErrors($validator->errors());
 				}else{
@@ -329,6 +372,7 @@ class AdminController extends Controller {
 						'path' => 'required'
 					]
            );
+           
 			if ($validator->fails()){
 				return redirect()->back()->withErrors($validator->errors());
 				}else{
