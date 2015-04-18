@@ -31,8 +31,7 @@ class PasswordController extends Controller {
 	{
 		$this->auth = $auth;
 		$this->passwords = $passwords;
-
 		$this->middleware('guest');
 	}
-
+	protected $redirectTo = '/admin/dashboard';
 }

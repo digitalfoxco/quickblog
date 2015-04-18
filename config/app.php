@@ -136,6 +136,7 @@ return [
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Cviebrock\EloquentSluggable\SluggableServiceProvider',
+		'Cviebrock\EloquentSluggable\SluggableServiceProvider',
 
 		/*
 		 * Application Service Providers...

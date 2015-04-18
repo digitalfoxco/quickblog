@@ -46,7 +46,7 @@
 					  <div class="row">
 						<div class="input-field col s12">
 						  <i class="mdi-action-lock-outline prefix"></i>
-						  <input id="email" type="password" name="password" value="{{old('password')}}" class="validate">
+						  <input id="email" type="password" name="password" class="validate">
 						  <label for="password">Password</label>
 						</div>
 					  </div>
@@ -60,7 +60,7 @@
 					</form>
 				</div>
 				<div class="card-action">
-				  <a href="/forgotpassword">Forgot Password ? </a>
+				  <a href="{{url('/password/email')}}">Forgot Password ? </a>
 				</div>
           </div>
     </div>

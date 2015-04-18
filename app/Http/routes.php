@@ -56,16 +56,21 @@ Route::group((['prefix' => '']), function (){
 |------------------------------------
 |
 */
+
 Route::group((['prefix' => '']), function (){
 	
 	Route::get('/login', 'AdminController@loginView');
 	
 	Route::post('/login', 'AdminController@login');
 	
-	Route::get('/forgotpassword', 'AdminController@forgotpasswordView');
+	//Route::get('/forgotpassword', 'AdminController@forgotpasswordView');
 
 });
 
+Route::controllers([
+	//'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+]);
 /*
 |------------------------------------
 | Admin Back End
