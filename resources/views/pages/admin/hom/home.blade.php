@@ -127,6 +127,7 @@
 
 $('#btnadd').click(function(){
 	$('#modal1').openModal();
+	$('.err').hide();
 	$('#title').val('');
 	$('#id').val('');
 	$('#sub_title').val('');
@@ -139,6 +140,7 @@ $('#btnadd').click(function(){
 $('.updatehome').click(function(){
 	$('#modal1').openModal();
 	$('#homimage').show();
+	$('.err').hide();
 	$('#id').val($(this).attr('data-id'));
 	$('#title').val($(this).attr('data-title'));
 	$('#sub_title').val($(this).attr('data-sub-title'));
@@ -149,10 +151,13 @@ $('.updatehome').click(function(){
 	$('#filled-in-box').prop('checked', false);
 });
 
-// Initialize collapse button
- // $('.button-collapse').sideNav();
-  // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-  //$('.collapsible').collapsible();
+
+$( document ).ready(function() {
+	if($('.err').text()!="")
+	{
+		$('#modal1').openModal();
+	} 
+});
 
 </script>
 

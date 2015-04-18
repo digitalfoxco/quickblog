@@ -29,22 +29,22 @@ Route::get('test', function(){
 |-----------------------------------
 |
 */	
-Route::group((['prefix' => '']), function (){
+Route::group((['prefix' => '/']), function (){
 	
 	//Index View
 	Route::get('/', 'FrontendController@indexView');
 
 	//About View
-	Route::get('/about', 'FrontendController@aboutView');
+	Route::get('about', 'FrontendController@aboutView');
 	
 	//Contact View
-	Route::get('/contact', 'FrontendController@contactView');
+	Route::get('contact', 'FrontendController@contactView');
 	
 	//Contact Us View
-	Route::post('/contactus','FrontendController@contactus');
+	Route::post('contactus','FrontendController@contactus');
 	
 	//Post View
-	Route::get('/post/{id?}/{slug?}', 'FrontendController@postView');
+	Route::get('post/{id?}/{slug?}', 'FrontendController@postView');
 	
 
 });
@@ -62,13 +62,10 @@ Route::group((['prefix' => '']), function (){
 	Route::get('/login', 'AdminController@loginView');
 	
 	Route::post('/login', 'AdminController@login');
-	
-	//Route::get('/forgotpassword', 'AdminController@forgotpasswordView');
 
 });
 
 Route::controllers([
-	//'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
 /*
