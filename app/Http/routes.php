@@ -31,6 +31,7 @@ Route::get('test', function(){
 */	
 Route::group((['prefix' => '/']), function (){
 	
+	
 	//Index View
 	Route::get('/', 'FrontendController@indexView');
 
@@ -44,7 +45,7 @@ Route::group((['prefix' => '/']), function (){
 	Route::post('contactus','FrontendController@contactus');
 	
 	//Post View
-	Route::get('post/{id?}/{slug?}', 'FrontendController@postView');
+	Route::get('post/{id?}-{slug?}', 'FrontendController@postView');
 	
 
 });

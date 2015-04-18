@@ -27,7 +27,7 @@
 						$slug = str_limit($getpost->slug, 30);
 						$slug = preg_replace('/[^A-Za-z0-9\. -]/', '', $slug);
 					/*--}}
-				<a href="/post/{{$getpost->id}}/{{$slug}}">
+				<a href="/post/{{$getpost->id}}-{{$slug}}">
 					<h4 class="left-align light black-text">
 						<strong>@if(isset($getpost->title)){{$getpost->title}}@else Man must explore, and this is exploration at its greatest @endif</strong>
 					</h4>
