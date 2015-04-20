@@ -32,7 +32,7 @@ window.onload = function() {
 							<li><a class="white-text" href="/admin/contact">Contact</a></li>
 							<li><a class="white-text" href="/admin/post">Post</a></li>
 							<li><a class="white-text" href="/admin/menu">Menu</a></li>
-						  </ul>
+						 </ul>
 						  <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 					</div>
 					

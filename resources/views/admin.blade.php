@@ -22,7 +22,7 @@
 		
 	@elseif($page=='menu')
 		@include('pages.admin.men.menu')
-		
+	
 	@endif
 
 @stop

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Foundation\Http\File;
+use Illuminate\Support\Facades\Session;
 
 use App\Contus;
 use Auth;
@@ -34,6 +35,8 @@ class AdminController extends Controller {
 	public function dashboard()
 	{
 		return view('admin')->with('page', 'dashboard');
+		
+		
 	}
 	
 	//Login To Dashboard
@@ -56,6 +59,7 @@ class AdminController extends Controller {
 				{
 						return redirect('/admin/dashboard');
 				}else{
+					    Session::flash('flash_message', 'Enter Vaild Email And Password');
 					    return redirect('/login');
 					 }
 				}
@@ -399,5 +403,7 @@ class AdminController extends Controller {
 			}
 			return redirect()->back();
 	}
+	
+	
 	
 }

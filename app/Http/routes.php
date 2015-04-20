@@ -140,8 +140,8 @@ Route::group((['prefix' => 'admin', 'middleware' => 'auth']), function (){
 	
 	//Delete Menu
 	Route::get('/menu/delete/{id}','AdminController@deletemenu');
-
-
+	
+	
 });
 
 

@@ -32,6 +32,11 @@
 			  <div class="card-content white-text  center">
 				  <span class="card-title">Login</span>
 					  <form action="/login" method="post">
+						  <div class="row alert alert-danger" style="color:red;">
+							  @if(Session::has('flash_message'))
+								<p>{{ Session::get('flash_message') }}</p>
+							  @endif
+						  </div>
 						<div class="row">
 							@include('errors.validation')
 						</div>
