@@ -46,21 +46,21 @@
 											
 											  <div class="row">
 												<div class="input-field col s6">
-												  <input name="title" id="title" value="{{ Input::old('title') }}" type="text" class="validate">
+												  <input name="title" id="title" value="{{ old('title') }}" type="text" class="validate">
 												  <label for="title">Title</label>
 												</div>
 											  </div>
 											  
 											  <div class="row">
 												<div class="input-field col s6">
-												  <input id="sub_title" name="sub_title" value="{{ Input::old('sub_title') }}" type="text" class="validate">
+												  <input id="sub_title" name="sub_title" value="{{ old('sub_title') }}" type="text" class="validate">
 												  <label for="sub_title">Sub-Title</label>
 												</div>
 											  </div>
 											  
 											  <div class="row">
 												<div class="file-field input-field">
-												  <input class="file-path validate" type="text"/>
+												  <input class="file-path validate" type="text" id="imagename"/>
 													  <div class="btn">
 														<span>File</span>
 														<input type="file" name="file"/>
@@ -111,7 +111,7 @@
 									<td>Off</td>
 									@endif
 									<td><img src="/images/{{$gethome->image}}" width="100px" height="80px"></td>
-									<td><a class="alert-link updatehome" data-id="{{$gethome->id}}" data-title="{{$gethome->title}}" data-sub-title="{{$gethome->sub_title}}" data-image="/images/{{$gethome->image}}" data-status="{{$gethome->status}}">Update</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/admin/home/delete/{{$gethome->id}}" onclick="return confirm('Are you sure you want to delete?');">Delete</a></td>
+									<td><a class="alert-link updatehome" data-id="{{$gethome->id}}" data-title="{{$gethome->title}}" data-sub-title="{{$gethome->sub_title}}" data-image-name="{{$gethome->image}}" data-image="/images/{{$gethome->image}}" data-status="{{$gethome->status}}">Update</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/admin/home/delete/{{$gethome->id}}" onclick="return confirm('Are you sure you want to delete?');">Delete</a></td>
 								  </tr>
 								</tbody>
 								@endforeach
@@ -127,32 +127,40 @@
 
 $('#btnadd').click(function(){
 	$('#modal1').openModal();
+	$('.err').hide();
 	$('#title').val('');
 	$('#id').val('');
 	$('#sub_title').val('');
 	$('#homimage').hide();
+	$('#imagename').val('');
 	
 });
 
-
+$( document ).ready(function() {
+	if($('.err').text()!=''){
+	  $('#modal1').openModal();
+	  $('#homimage').hide();
+	} 
+});
 
 $('.updatehome').click(function(){
 	$('#modal1').openModal();
+	$('.err').hide();
 	$('#homimage').show();
 	$('#id').val($(this).attr('data-id'));
 	$('#title').val($(this).attr('data-title'));
+	$('#title').focus();
 	$('#sub_title').val($(this).attr('data-sub-title'));
+	$('#sub_title').focus();
 	$('#homimage').attr('src',$(this).attr('data-image'));
+	$('#imagename').val($(this).attr('data-image-name'));
 	if(($(this).attr('data-status'))=='1')
 	$('#filled-in-box').prop('checked', true);
 	else
 	$('#filled-in-box').prop('checked', false);
 });
 
-// Initialize collapse button
- // $('.button-collapse').sideNav();
-  // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-  //$('.collapsible').collapsible();
+
 
 </script>
 

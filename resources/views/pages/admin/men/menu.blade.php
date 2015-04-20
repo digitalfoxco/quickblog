@@ -114,6 +114,7 @@
 
 $('#btnmenu').click(function(){
 	$('#modal1').openModal();
+	$('.err').hide();
 	$('#id').val('');
 	$('#name').val('');
 	$('#path').val('');
@@ -122,12 +123,20 @@ $('#btnmenu').click(function(){
 	
 });
 
+$( document ).ready(function() {
+	if($('.err').text()!=''){
+	  $('#modal1').openModal();
+	} 
+});
 
 $('.updatemenu').click(function(){
 	$('#modal1').openModal();
+	$('.err').hide();
 	$('#id').val($(this).attr('data-id'));
 	$('#name').val($(this).attr('data-name'));
+	$('#name').focus();
 	$('#path').val($(this).attr('data-path'));
+	$('#path').focus();
 	if(($(this).attr('data-status'))=='1')
 	$('#filled-in-box').prop('checked', true);
 	else

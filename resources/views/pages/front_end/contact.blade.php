@@ -67,8 +67,7 @@
         </div>
       </div>
       <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-			<i class="mdi-content-send right"></i>
-	  </button>
+		</button>
     </form>
   </div>
       

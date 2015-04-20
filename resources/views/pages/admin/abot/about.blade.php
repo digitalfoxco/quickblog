@@ -76,12 +76,13 @@ window.onload = function() {
 											  <!--<textarea id="textarea1" name="content" class="materialize-textarea"></textarea>
 											  <label for="textarea1">Content</label>-->
 											  <textarea id="content" name="content" class="materialize-textarea"></textarea>
+											  
 											</div>
 										</div>
 									  
 									  <div class="row">
 										<div class="file-field input-field">
-										  <input class="file-path validate" type="text"/>
+										  <input class="file-path validate" type="text" id="imagename"/>
 										  <div class="btn">
 											<span>File</span>
 											<input type="file" name="file"/>
@@ -133,7 +134,7 @@ window.onload = function() {
 									<td>Off</td>
 									@endif
 									<td><img src="/images/{{$getabout->image}}" width="100px" height="80px"></td>
-									<td><a class="alert-link updateabout" data-id="{{$getabout->id}}" data-title="{{$getabout->title}}" data-sub-title="{{$getabout->sub_title}}" data-content="{{$getabout->content}}" data-image="/images/{{$getabout->image}}" data-status="{{$getabout->status}}">Update</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/admin/about/delete/{{$getabout->id}}" onclick="return confirm('Are you sure you want to delete?');">Delete</a></td>
+									<td><a class="alert-link updateabout" data-id="{{$getabout->id}}" data-title="{{$getabout->title}}" data-sub-title="{{$getabout->sub_title}}" data-image-name="{{$getabout->image}}" data-content="{{$getabout->content}}" data-image="/images/{{$getabout->image}}" data-status="{{$getabout->status}}">Update</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/admin/about/delete/{{$getabout->id}}" onclick="return confirm('Are you sure you want to delete?');">Delete</a></td>
 								  </tr>
 								</tbody>
 								@endforeach
@@ -148,34 +149,43 @@ window.onload = function() {
 $('#btnabout').click(function(){
 	
 	$('#modal1').openModal();
+	$('.err').hide();
 	$('#id').val('');
 	$('#title').val('');
 	$('#sub_title').val('');
-	$('#content').val('');
+	CKEDITOR.instances['content'].setData('');
 	$('#abtimage').hide();
+	$('#imagename').val('');
 	
 });
 
 
+$( document ).ready(function() {
+	if($('.err').text()!=''){
+	  $('#modal1').openModal();
+	  $('#abtimage').hide();
+	} 
+});
+
 
 $('.updateabout').click(function(){
 	$('#modal1').openModal();
+	$('.err').hide();
 	$('#abtimage').show();
 	$('#id').val($(this).attr('data-id'));
 	$('#title').val($(this).attr('data-title'));
+	$('#title').focus();
 	$('#sub_title').val($(this).attr('data-sub-title'));
-	$('#content').val($(this).attr('data-content'));
+	$('#sub_title').focus();
+	CKEDITOR.instances['content'].setData($(this).attr('data-content'));
 	$('#abtimage').attr('src',$(this).attr('data-image'));
+	$('#imagename').val($(this).attr('data-image-name'));
 	if(($(this).attr('data-status'))=='1')
 	$('#filled-in-box').prop('checked', true);
 	else
 	$('#filled-in-box').prop('checked', false);
 });
 
-// Initialize collapse button
- // $('.button-collapse').sideNav();
-  // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-  //$('.collapsible').collapsible();
 
 </script>
 

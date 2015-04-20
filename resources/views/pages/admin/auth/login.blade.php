@@ -60,7 +60,7 @@
 					</form>
 				</div>
 				<div class="card-action">
-				  <a href="/forgotpassword">Forgot Password ? </a>
+				  <a href="{{ url('/password/email') }}">Forgot Password ? </a>
 				</div>
           </div>
     </div>

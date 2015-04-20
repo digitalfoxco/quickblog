@@ -1,0 +1,105 @@
+$(document).ready(function(){}
+
+
+<meta name="_token" content="{csrf_token !!}"/>
+
+
+'X-XSRF-TOKEN': $('meta[name="_token"]').attr('content')
+
+Illuminate\Support\Facades\Form
+
+
+
+
+<input type="hidden" name="_token" id="csrf_token" value="" />
+
+$.ajax({
+       type: 'POST',
+       url: route,
+       dataType: 'json',
+       data: { id_array: data },
+       success: function(data) {
+            console.log(data);
+       }, error: function(data) {
+            console.log(data);
+       },
+    });
+
+
+/* Validation rules --------------------------- */
+        public function rules()
+        {
+            $rules = [
+                'title' => 'required|min:3',
+                'content' => 'required|min:10',
+            ];
+
+            return $rules;
+        }
+
+
+
+/* Authorization ------------------------------ */
+        public function authorize()
+        {
+            return true;
+        }
+
+
+
+var s = document.getElementById(variable);
+
+
+var token= $('#token').val();
+alert(hv);
+
+var hv = $('#h_v').attr("value");
+alert(hv);
+
+var hv = $('#h_v).text();
+
+
+use Validator, Input, Redirect; 
+
+
+//Download csv
+	public function getDownload()
+	{
+			$result = Analytic::all();
+			$result = json_decode(json_encode($result));
+			
+			$data = new Analytic();
+			//Number of Column
+			$columnresult = $data->getColumn();
+			
+			//Get The Field Name
+			$total = array();
+			foreach ($columnresult as $column){
+			 $total[]=$column->Field;
+			}
+			
+			//Get Record From Database
+			$allres = array();
+			$j =0 ;
+			for($i=0; $i<=count($result)-1;$i++){
+				$res=array();
+			  foreach($result[$i] as $value){
+				   $res[] = $value;
+				}
+				$allres[$j] = $res;
+				$j++;
+			}
+			
+			//Download the file
+			header("Content-type: text/csv");
+			header("Content-Disposition: attachment; filename=analytics.csv");
+			header("Pragma: no-cache");
+			header("Expires: 0");
+			  
+			$file = fopen('php://output', 'w');                              
+			fputcsv($file, $total);
+			foreach($allres as $getagain){
+				fputcsv($file, $getagain);
+			}
+			exit(); 
+	}
