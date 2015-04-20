@@ -14,7 +14,8 @@
 					<div class="col s2 grey darken-4 sidebar1">
 					
 						 <ul id="slide-out" class="side-nav fixed center grey darken-4">
-							 <li><a class="white-text" href="/admin/dashboard">Dashboard</a></li>
+							 
+							<li><a class="white-text" href="/admin/dashboard">Dashboard</a></li>
 							<li><a class="white-text" href="/admin/home">Home</a></li>
 							<li><a class="white-text" href="/admin/about">About</a></li>
 							<li><a class="white-text" href="/admin/contact">Contact</a></li>
@@ -117,6 +118,8 @@
 								</tbody>
 								@endforeach
 						   </table>
+						   {!! $home->render() !!}
+						   
 						</div>
 						
 </div>  

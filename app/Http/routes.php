@@ -82,6 +82,8 @@ Route::group((['prefix' => '']), function (){
 	Route::post('/login', 'AdminController@login');
 	
 	
+	
+	
 });
 
 /*

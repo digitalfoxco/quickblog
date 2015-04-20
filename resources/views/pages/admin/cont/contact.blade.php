@@ -137,6 +137,7 @@ window.onload = function() {
 								</tbody>
 								@endforeach
 						   </table>
+						   {!! $contact->render() !!}
 						</div>
 </div>  
 

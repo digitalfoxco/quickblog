@@ -139,6 +139,7 @@ window.onload = function() {
 								</tbody>
 								@endforeach
 						   </table>
+						   {!! $about->render() !!}
 						</div>
 </div>  
 

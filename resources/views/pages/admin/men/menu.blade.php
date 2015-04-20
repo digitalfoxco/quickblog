@@ -106,6 +106,7 @@
 								</tbody>
 								@endforeach
 						   </table>
+						   {!! $menu->render() !!}
 						</div>
 </div>  
 

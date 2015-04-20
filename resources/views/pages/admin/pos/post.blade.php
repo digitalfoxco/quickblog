@@ -138,6 +138,7 @@ window.onload = function() {
 								</tbody>
 								@endforeach
 						   </table>
+						   {!! $post->render() !!}
 						</div>
 </div>  
 

@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Foundation\Http\File;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Exceptions\Handler;
+
+
 
 use App\Contus;
 use Auth;
@@ -30,6 +34,8 @@ class AdminController extends Controller {
 	{
 		return view('pages.admin.auth.login');
 	}
+	
+	
 	
 	//Dashboard View
 	public function dashboard()
@@ -69,7 +75,7 @@ class AdminController extends Controller {
 	//Home View
 	public function home()
 	{
-		$home = Homes::all();
+		$home = Homes::where('id', '>', '0')->paginate(2);
 		return view('admin')->with('page', 'home')->with('home', $home);
 	}
 	
@@ -140,7 +146,7 @@ class AdminController extends Controller {
 	//About View
 	public function about()
 	{
-		$about = Abouts::all();
+		$about = Abouts::where('id', '>', '0')->paginate(2);
 		return view('admin')->with('page', 'about')->with('about', $about);
 	}
 	
@@ -212,7 +218,7 @@ class AdminController extends Controller {
 	//Contact View
 	public function contact()
 	{
-		$contact = Contact::all();
+		$contact = Contact::where('id', '>', '0')->paginate(2);
 		return view('admin')->with('page', 'contact')->with('contact', $contact);
 	}
 	
@@ -285,7 +291,7 @@ class AdminController extends Controller {
 	//Post View
 	public function post()
 	{
-		$post = Posts::all();
+		$post = Posts::where('id', '>', '0')->paginate(2);
 		return view('admin')->with('page', 'post')->with('post', $post);
 	}
 	
@@ -358,7 +364,7 @@ class AdminController extends Controller {
 	//Menu View
 	public function menu()
 	{
-		$menu = Menus::all();
+		$menu = Menus::where('id', '>', '0')->paginate(2);
 		return view('admin')->with('page', 'menu')->with('menu', $menu);
 	}
 	
