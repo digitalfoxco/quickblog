@@ -15,7 +15,7 @@
 					
 					<div class="col s2 grey darken-4 sidebar1">
 					   <ul id="slide-out" class="side-nav fixed center grey darken-4">
-							<li><a class="white-text" href="/admin/dashboard">Dashboard</a></li>
+						    <li><a class="white-text" href="/admin/dashboard">Dashboard</a></li>
 							<li><a class="white-text" href="/admin/home">Home</a></li>
 							<li><a class="white-text" href="/admin/about">About</a></li>
 							<li><a class="white-text" href="/admin/contact">Contact</a></li>
@@ -31,3 +31,19 @@
 		
 </div>  
 
+
+<script type="text/javascript">
+$(function(){
+	var segment_str = window.location.pathname;
+	var segment_array = segment_str.split( '/' );
+	var second = segment_array[segment_array.length - 2];
+	var last = segment_array[segment_array.length - 1];
+	var t  = '/'+second+'/'+last;
+	$('.sidebar1 ul li a').each(function(){
+		var url = $(this).attr('href');
+		if(url.trim()==t.trim()){
+			$(this).parent().addClass('active');
+			}
+			});
+});
+</script>
