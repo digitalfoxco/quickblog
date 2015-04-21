@@ -18,7 +18,7 @@ window.onload = function() {
 		<div class="nav-wrapper teal">
 		  <a href="#" class="brand-logo"></a>
 		  <ul id="nav-mobile" class="right hide-on-med-and-down">
-			<li><a class="white-text" href="/logout">Logout</a></li>
+			<li><a href="/logout" class="waves-effect waves-teal btn-flat white-text">Logout</a></li>
 		  </ul>
 		</div>
 	  </nav>
@@ -110,6 +110,7 @@ window.onload = function() {
 									  <th data-field="id">#</th>
 									  <th data-field="name">Title</th>
 									  <th data-field="price">Sub-Title</th>
+									  <th data-field="price">Content</th>
 									  <th data-field="price">Status</th>
 									  <th data-field="price">Image</th>
 									  <th data-field="price">Action</th>
@@ -122,6 +123,7 @@ window.onload = function() {
 									<td>{{$i++}}</td>
 									<td>{{$getabout->title}}</td>
 									<td>{{$getabout->sub_title}}</td>
+									<td>{{$getabout->content}}</td>
 									@if($getabout->status==1)
 									<td>Active</td>
 									@else

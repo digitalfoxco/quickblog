@@ -5,7 +5,7 @@
 		<div class="nav-wrapper teal">
 		  <a href="#" class="brand-logo"></a>
 		  <ul id="nav-mobile" class="right hide-on-med-and-down">
-			<li><a class="white-text" href="/logout">Logout</a></li>
+			<li><a href="/logout" class="waves-effect waves-teal btn-flat white-text">Logout</a></li>
 		  </ul>
 		</div>
 	  </nav>
