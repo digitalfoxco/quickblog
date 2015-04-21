@@ -1,4 +1,4 @@
-
+<script src="/assets/admin/js/dashboard.js"></script>
 
 <div class="row">
 				     <nav>
@@ -21,29 +21,10 @@
 							<li><a class="white-text" href="/admin/contact">Contact</a></li>
 							<li><a class="white-text" href="/admin/post">Post</a></li>
 							<li><a class="white-text" href="/admin/menu">Menu</a></li>
-							
 						</ul>
 						  <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-								
 					</div>
 					
 					<div class="" style="padding-left: 300px;"><h3>Welcome To Dashboard</h3></div>
 		
-</div>  
-
-
-<script type="text/javascript">
-$(function(){
-	var segment_str = window.location.pathname;
-	var segment_array = segment_str.split( '/' );
-	var second = segment_array[segment_array.length - 2];
-	var last = segment_array[segment_array.length - 1];
-	var t  = '/'+second+'/'+last;
-	$('.sidebar1 ul li a').each(function(){
-		var url = $(this).attr('href');
-		if(url.trim()==t.trim()){
-			$(this).parent().addClass('active');
-			}
-			});
-});
-</script>
+</div>

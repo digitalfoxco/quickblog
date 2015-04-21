@@ -35,14 +35,17 @@ class AdminController extends Controller {
 		return view('pages.admin.auth.login');
 	}
 	
-	
+	//Index View
+	public function index()
+	{
+		$home = Homes::where('id', '>', '0')->paginate(2);
+		return view('pages.admin.index')->with('home', $home);
+	}
 	
 	//Dashboard View
 	public function dashboard()
 	{
 		return view('admin')->with('page', 'dashboard');
-		
-		
 	}
 	
 	//Login To Dashboard

@@ -95,6 +95,9 @@ Route::group((['prefix' => '']), function (){
 
 Route::group((['prefix' => 'admin', 'middleware' => 'auth']), function (){
 
+	//Index View
+	Route::get('/index', 'AdminController@index');
+	
 	//Dashboard View
 	Route::get('/dashboard', 'AdminController@dashboard');
 	

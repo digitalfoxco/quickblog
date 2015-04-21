@@ -3,7 +3,6 @@ height:1000px;;;
 }
 
 .modal{
-  max-height:800px;
-  position:relative;
+  position:absolute;
   overflow:auto;
 }

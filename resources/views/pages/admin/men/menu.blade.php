@@ -1,67 +1,56 @@
+<script src="/assets/admin/js/menu.js"></script>
+
+
 <div class="row">
-				     <nav>
-						<div class="nav-wrapper teal"  style="padding-left: 240px;">
-						  <a href="#" class="brand-logo"></a>
-						  <ul id="nav-mobile" class="right hide-on-med-and-down">
-							<li><a class="white-text" href="sass.html"></a></li>
-							<li><a class="white-text" href="components.html"></a></li>
-							<li><a class="white-text" href="/logout">Logout</a></li>
-						  </ul>
-						</div>
-					  </nav>
-					
-					
-					<div class="col s2 grey darken-4 sidebar1">
-					
-						 <ul id="slide-out" class="side-nav fixed center grey darken-4">
-							 <li><a class="white-text" href="/admin/dashboard">Dashboard</a></li>
-							<li><a class="white-text" href="/admin/home">Home</a></li>
-							<li><a class="white-text" href="/admin/about">About</a></li>
-							<li><a class="white-text" href="/admin/contact">Contact</a></li>
-							<li><a class="white-text" href="/admin/post">Post</a></li>
-							<li><a class="white-text" href="/admin/menu">Menu</a></li>
-							
-						  </ul>
-						  <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-					</div>
-					
-				<!-- Modal Trigger -->
-				 <button class="btn-floating btn-large waves-effect waves-light teal" style="margin-top:25px; margin-left:1000px;" id="btnmenu" data-target="modal1" class="btn modal-trigger" type="submit" name="action"><i class="mdi-content-add"></i></button>
-					 
-				 <!-- Modal Structure -->
+	 <nav>
+		<div class="nav-wrapper teal">
+		  <a href="#" class="brand-logo"></a>
+		  <ul id="nav-mobile" class="right hide-on-med-and-down">
+			<li><a class="white-text" href="/logout">Logout</a></li>
+		  </ul>
+		</div>
+	  </nav>
+</div>
+@include('pages.admin.navi')
+<div class="row">
+	<div class="container">
+		<!-- Modal Trigger -->
+		 <button class="btn-floating btn-large waves-effect waves-light teal right" id="btnmenu" data-target="modal1" class="btn modal-trigger" type="submit" name="action"><i class="mdi-content-add"></i></button>
+	</div>
+	
+	<div class="container">
+	<!-- Modal Structure -->
 					<div id="modal1" class="modal">
 						<form class="col s12" action="/admin/addmenu" method="post" enctype="multipart/form-data">
 							<input id="csrf_token" type="hidden" name="_token" value="{{ csrf_token() }}"/>	
 										  
 						     <div class="modal-content">
-								 <h4>Menu</h4>
-								   
-								   <div class="row">
+						          <h4>Menu</h4>
+						            <div class="row">
 										@include('errors.validation')
 									</div>
-									  
 										<div class="row">
 											 <div class="row">
-												<div class="input-field col s6">
+												<div class="input-field col s12">
 												  <input type="hidden" name="id" id="id"/>
 												</div>
 											  </div>
 											
-											  <div class="row">
-												<div class="input-field col s6">
+											 <div class="row">
+												<div class="input-field col s12">
 												  <input name="name" id="name" type="text" class="validate">
 												  <label for="name">Name</label>
 												</div>
 											  </div>
 											  
 											  <div class="row">
-												<div class="input-field col s6">
+												<div class="input-field col s12">
 												  <input id="path" name="path" type="text" class="validate">
 												  <label for="path">Path</label>
 												</div>
 											  </div>
 											  
-											  <div class="row">
+												<div class="row">
 													<p>
 													  <input type="checkbox" name="checkbox" class="filled-in" id="filled-in-box"/>
 													  <label for="filled-in-box">Status</label>
@@ -76,9 +65,16 @@
 									</div>
 						 </form>
 					</div>
-				
-				 <!-- End Modal Structure -->
-						<div class="responsive-table col s10"  style="margin-top:25px;   padding-left:50px;">
+				<!-- End Modal Structure -->
+
+		</div>	
+</div>
+
+
+
+<div class="row">
+   <div class="container right">
+			<div class="responsive-table col s10">
 							<table>
 								<thead>
 								  <tr>
@@ -92,7 +88,7 @@
 								<tbody>
 									{{--*/	$i=1; /*--}}
 								@foreach($menu as $getmenu)
-									<tr>
+								  <tr>
 									<td>{{$i++}}</td>
 									<td>{{$getmenu->name}}</td>
 									<td>{{$getmenu->path}}</td>
@@ -106,56 +102,9 @@
 								</tbody>
 								@endforeach
 						   </table>
-						   {!! $menu->render() !!}
-						</div>
-</div>  
-
-<script>
-	
-$(function(){
-	var segment_str = window.location.pathname;
-	var segment_array = segment_str.split( '/' );
-	var second = segment_array[segment_array.length - 2];
-	var last = segment_array[segment_array.length - 1];
-	var t  = '/'+second+'/'+last;
-	$('.sidebar1 ul li a').each(function(){
-		var url = $(this).attr('href');
-		if(url.trim()==t.trim()){
-			$(this).parent().addClass('active');
-			}
-			});
-});	
-
-$('#btnmenu').click(function(){
-	$('#modal1').openModal();
-	$('.err').hide();
-	$('#id').val('');
-	$('#name').val('');
-	$('#path').val('');
-	$('#filled-in-box').val('');
-	
-	
-});
-
-$( document ).ready(function() {
-	if($('.err').text()!=''){
-	  $('#modal1').openModal();
-	} 
-});
-
-$('.updatemenu').click(function(){
-	$('#modal1').openModal();
-	$('.err').hide();
-	$('#id').val($(this).attr('data-id'));
-	$('#name').val($(this).attr('data-name'));
-	$('#name').focus();
-	$('#path').val($(this).attr('data-path'));
-	$('#path').focus();
-	if(($(this).attr('data-status'))=='1')
-	$('#filled-in-box').prop('checked', true);
-	else
-	$('#filled-in-box').prop('checked', false);
-});
-
-</script>
-
+						    <ul class="pagination right">
+								{!! $menu->render() !!}
+						   </ul>
+					</div>
+	</div>
+</div>
