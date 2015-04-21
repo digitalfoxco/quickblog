@@ -197,7 +197,9 @@ class AdminController extends Controller {
 					}
 						$about->title = Input::get('title');
 						$about->sub_title = Input::get('sub_title');
-						$about->content = Input::get('content');
+						$aboutcontent = Input::get('content');
+						$aboutcontent = preg_replace('/<\s*\/?\s*(br|p)\s*\/?\s*>/i', '', $aboutcontent);
+						$about->content = $aboutcontent;
 						if(Input::get('checkbox')){
 							Abouts::where('status','=','1')->update(array('status'=> '0'));
 						$about->status = '1';
@@ -270,7 +272,9 @@ class AdminController extends Controller {
 						}
 							$contact->title = Input::get('title');
 							$contact->sub_title = Input::get('sub_title');
-							$contact->content = Input::get('content');
+							$contactcontent = Input::get('content');
+						    $contactcontent = preg_replace('/<\s*\/?\s*(br|p)\s*\/?\s*>/i', '', $contactcontent);
+						    $contact->content = $contactcontent;
 							if(Input::get('checkbox')){
 								Contact::where('status','=','1')->update(array('status'=> '0'));
 							$contact->status = '1';
@@ -343,7 +347,9 @@ class AdminController extends Controller {
 					}
 						$post->title = Input::get('title');
 						$post->sub_title = Input::get('sub_title');
-						$post->content = Input::get('content');
+						$postcontent = Input::get('content');
+						$postcontent = preg_replace('/<\s*\/?\s*(br|p)\s*\/?\s*>/i', '', $postcontent);
+						$post->content = $postcontent;
 						if(Input::get('checkbox')){
 							Posts::where('status','=','1')->update(array('status'=> '0'));
 						$post->status = '1';

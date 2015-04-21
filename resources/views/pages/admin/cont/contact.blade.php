@@ -112,7 +112,13 @@ window.onload = function() {
 									  <th data-field="price">Sub-Title</th>
 									  <th data-field="price">Content</th>
 									  <th data-field="price">Status</th>
-									  <th data-field="price">Image</th>
+									  @foreach($contact as $getcontact)
+									    @if($getcontact->image)
+										<th data-field="price">Image</th>
+										@else
+										<th data-field="price"></th>
+										@endif
+									  @endforeach
 									  <th data-field="price">Action</th>
 									</tr>
 								</thead>
@@ -129,7 +135,11 @@ window.onload = function() {
 									@else
 									<td>Off</td>
 									@endif
-									<td><img src="/images/{{$getcontact->image}}" width="100px" height="80px"></td>
+									@if($getcontact->image)
+										<td><img src="/images/{{$getcontact->image}}" width="100px" height="80px"></td>
+									@else
+									<td></td>
+									@endif
 									<td><a class="alert-link updatecontact" data-id="{{$getcontact->id}}" data-title="{{$getcontact->title}}" data-sub-title="{{$getcontact->sub_title}}" data-image-name="{{$getcontact->image}}" data-content="{{$getcontact->content}}" data-image="/images/{{$getcontact->image}}" data-status="{{$getcontact->status}}">Update</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/admin/contact/delete/{{$getcontact->id}}" onclick="return confirm('Are you sure you want to delete?');">Delete</a></td>
 								  </tr>
 								</tbody>

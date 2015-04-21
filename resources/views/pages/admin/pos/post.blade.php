@@ -112,7 +112,13 @@ window.onload = function() {
 									  <th data-field="price">Sub-Title</th>
 									  <th data-field="price">Content</th>
 									  <th data-field="price">Status</th>
-									  <th data-field="price">Image</th>
+									  @foreach($post as $getpost)
+									    @if($getpost->image)
+										<th data-field="price">Image</th>
+										@else
+										<th data-field="price"></th>
+										@endif
+									  @endforeach
 									  <th data-field="price">Action</th>
 									</tr>
 								</thead>
@@ -129,7 +135,11 @@ window.onload = function() {
 									@else
 									<td>Off</td>
 									@endif
+									@if($getpost->image)
 									<td><img src="/images/{{$getpost->image}}" width="100px" height="80px"></td>
+									@else
+									<td></td>
+									@endif
 									<td><a class="alert-link updatepost" data-id="{{$getpost->id}}" data-title="{{$getpost->title}}" data-sub-title="{{$getpost->sub_title}}" data-image-name="{{$getpost->image}}" data-content="{{$getpost->content}}" data-image="/images/{{$getpost->image}}" data-status="{{$getpost->status}}">Update</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/admin/post/delete/{{$getpost->id}}" onclick="return confirm('Are you sure you want to delete?');">Delete</a></td>
 								  </tr>
 								</tbody>

@@ -7,7 +7,6 @@
 window.onload = function() {
   var editor = CKEDITOR.replace('content');
   CKFinder.SetupCKEditor( editor, '/ckfinder/');
- 
   
 };
 </script>
@@ -112,7 +111,13 @@ window.onload = function() {
 									  <th data-field="price">Sub-Title</th>
 									  <th data-field="price">Content</th>
 									  <th data-field="price">Status</th>
-									  <th data-field="price">Image</th>
+									  @foreach($about as $getabout)
+									    @if($getabout->image)
+										<th data-field="price">Image</th>
+										@else
+										<th data-field="price"></th>
+										@endif
+									  @endforeach
 									  <th data-field="price">Action</th>
 									</tr>
 								</thead>
@@ -129,7 +134,11 @@ window.onload = function() {
 									@else
 									<td>Off</td>
 									@endif
-									<td><img src="/images/{{$getabout->image}}" width="100px" height="80px"></td>
+									@if($getabout->image)
+										<td><img src="/images/{{$getabout->image}}" width="100px" height="80px"></td>
+									@else
+									<td></td>
+									@endif
 									<td><a class="alert-link updateabout" data-id="{{$getabout->id}}" data-title="{{$getabout->title}}" data-sub-title="{{$getabout->sub_title}}" data-image-name="{{$getabout->image}}" data-content="{{$getabout->content}}" data-image="/images/{{$getabout->image}}" data-status="{{$getabout->status}}">Update</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/admin/about/delete/{{$getabout->id}}" onclick="return confirm('Are you sure you want to delete?');">Delete</a></td>
 								  </tr>
 								</tbody>

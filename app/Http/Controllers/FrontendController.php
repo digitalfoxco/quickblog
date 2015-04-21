@@ -36,7 +36,7 @@ class FrontendController extends Controller {
 	//About View
 	public function aboutView()
 	{
-		$about = Abouts::all();
+		$about = Abouts::where('status', '=', '1')->get();
 		$menu = Menus::all();
 		return view('main')->with('page', 'about')->with('about', $about)->with('menu', $menu);
 	}
@@ -45,7 +45,7 @@ class FrontendController extends Controller {
 	//Contact View
 	public function contactView()
 	{
-		$contact = Contact::all();
+		$contact = Contact::where('status', '=', '1')->get();
 		$menu = Menus::all();
 		return view('main')->with('page', 'contact')->with('contact', $contact)->with('menu', $menu);
 	}

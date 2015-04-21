@@ -13,7 +13,13 @@
 
       </div>
     </div>
-    <div class="parallax"><img src="/assets/front_end/material/img/background1.jpg" alt="Unsplashed background img 2"></div>
+    <div class="parallax">
+		@if(isset($home->image))
+			<img src="images/{{$home->image}}" alt="...">
+		@else
+			<img src="/assets/front_end/material/img/background1.jpg" alt="Unsplashed background img 2">
+		@endif   
+		</div>
   </div>
 
 

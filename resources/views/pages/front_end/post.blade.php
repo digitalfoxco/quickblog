@@ -13,7 +13,7 @@
     </div>
     <div class="parallax">
 		@if(isset($postid->image))
-		<img src="/images/{{$postid->image}}" alt="..." height="700px" width="1900px"/>
+		<img src="images/{{$postid->image}}" alt="..." height="700px" width="1900px"/>
 		@else
 		<img src="/assets/front_end/material/img/post-bg.jpg" alt="Unsplashed background img 2">
 		@endif

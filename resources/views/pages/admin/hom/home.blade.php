@@ -93,7 +93,13 @@
 									  <th data-field="name">Title</th>
 									  <th data-field="price">Sub-Title</th>
 									  <th data-field="price">Status</th>
-									  <th data-field="price">Image</th>
+									  @foreach($home as $gethome)
+									    @if($gethome->image)
+										<th data-field="price">Image</th>
+										@else
+										<th data-field="price"></th>
+										@endif
+									  @endforeach
 									  <th data-field="price">Action</th>
 									</tr>
 								</thead>
@@ -109,7 +115,11 @@
 									@else
 									<td>Off</td>
 									@endif
-									<td><img src="/images/{{$gethome->image}}" width="100px" height="80px"></td>
+									@if($gethome->image)
+										<td><img src="/images/{{$gethome->image}}" width="100px" height="80px"></td>
+									@else
+									<td></td>
+									@endif
 									<td><a class="alert-link updatehome" data-id="{{$gethome->id}}" data-title="{{$gethome->title}}" data-sub-title="{{$gethome->sub_title}}" data-image-name="{{$gethome->image}}" data-image="/images/{{$gethome->image}}" data-status="{{$gethome->status}}">Update</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/admin/home/delete/{{$gethome->id}}" onclick="return confirm('Are you sure you want to delete?');">Delete</a></td>
 								  </tr>
 								</tbody>

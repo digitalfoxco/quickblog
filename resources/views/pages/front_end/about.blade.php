@@ -10,7 +10,14 @@
 				<br><br>
 			  </div>
 		</div>
-		<div class="parallax"><img src="/assets/front_end/material/img/about-bg.jpg" alt="Unsplashed background img 2"></div>
+		<div class="parallax">
+			@if(isset($getabout->image))
+				<img src="images/{{$getabout->image}}" alt="...">
+			@else
+				<img src="/assets/front_end/material/img/about-bg.jpg" alt="Unsplashed background img 2">
+			@endif 
+			
+		</div>
   </div>
 
 
