@@ -5,7 +5,11 @@
 
 <script language="JavaScript" type="text/javascript">
 window.onload = function() {
-  var editor = CKEDITOR.replace('content');
+  var editor = CKEDITOR.replace('content',{
+                  width: 700,
+                  resize_maxWidth: 700,
+                  resize_minWidth: 700
+                 });
   CKFinder.SetupCKEditor( editor, '/ckfinder/');
  
   
