@@ -52,7 +52,7 @@
 											  
 												<div class="row">
 													<p>
-													  <input type="checkbox" name="checkbox" class="filled-in" id="filled-in-box"/>
+													  <input type="checkbox" name="checkbox" class="filled-in" id="filled-in-box" checked="checked"/>
 													  <label for="filled-in-box">Status</label>
 													</p>
 												</div>

@@ -63,7 +63,7 @@
 											  
 												<div class="row">
 													<p>
-													  <input type="checkbox" name="checkbox" class="filled-in" id="filled-in-box"/>
+													  <input type="checkbox" name="checkbox" class="filled-in" id="filled-in-box" checked="checked"/>
 													  <label for="filled-in-box">Status</label>
 													</p>
 												</div>
@@ -93,13 +93,7 @@
 									  <th data-field="name">Title</th>
 									  <th data-field="price">Sub-Title</th>
 									  <th data-field="price">Status</th>
-									  @foreach($home as $gethome)
-									    @if($gethome->image)
-										<th data-field="price">Image</th>
-										@else
-										<th data-field="price"></th>
-										@endif
-									  @endforeach
+									  <th data-field="price">Image</th>
 									  <th data-field="price">Action</th>
 									</tr>
 								</thead>
